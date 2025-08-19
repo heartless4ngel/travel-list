@@ -6,9 +6,15 @@ interface PackingListProps {
   items: ItemObj[];
   onDelete(id: number): void;
   onTogglePacked(id: number): void;
+  onRequestClearList(): void;
 }
 
-function PackingList({ items, onDelete, onTogglePacked }: PackingListProps) {
+function PackingList({
+  items,
+  onDelete,
+  onTogglePacked,
+  onRequestClearList: onRequestClearList,
+}: PackingListProps) {
   const [sortBy, setSortBy] = useState("input");
 
   let sortedItems: ItemObj[] = items;
@@ -47,6 +53,7 @@ function PackingList({ items, onDelete, onTogglePacked }: PackingListProps) {
           <option value="description">Sort by descritpion</option>
           <option value="packed">Sort by packed status</option>
         </select>
+        <button onClick={onRequestClearList}>Clear list</button>
       </div>
     </div>
   );
