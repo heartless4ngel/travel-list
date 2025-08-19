@@ -38,7 +38,6 @@ function App() {
     );
   };
 
-  // Mostra la modale invece di cancellare subito
   const handleRequestClearList = () => setIsModalOpen(true);
 
   const confirmClearList = () => {
